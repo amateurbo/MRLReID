@@ -1,6 +1,12 @@
 # MRLReID-Unconstrained-Cross-resolution-Person-Re-identification-with-Multi-task-Resolution-Learning
 MRLReID: Unconstrained Cross-resolution Person Re-identification with Multi-task Resolution Learning
 
+## Requirements
+### Installation
+pip install -r requirements.txt
+
+
+
 ### DownLoad D-Datasets
 [百度网盘](https://pan.baidu.com/s/159Irj5knjNNnHUrvoh8TUA?pwd=yjan)
 
