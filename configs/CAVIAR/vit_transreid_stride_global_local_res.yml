@@ -1,0 +1,69 @@
+MODEL:
+  PRETRAIN_CHOICE: 'imagenet'
+  PRETRAIN_PATH: '/home/gpu/.cache/torch/checkpoints/jx_vit_base_p16_224-80ecf9dd.pth'
+  METRIC_LOSS_TYPE: 'triplet'
+  IF_LABELSMOOTH: 'off'
+  IF_WITH_CENTER: 'no'
+  NAME: 'transformer'
+  NO_MARGIN: True
+  DEVICE_ID: ('0')
+  TRANSFORMER_TYPE: 'vit_base_patch16_224_TransReID'
+  STRIDE_SIZE: [12, 12]
+  SIE_CAMERA: True
+  SIE_COE: 3.0
+  JPM: True
+  RE_ARRANGE: True
+  RES_TRI_NUM: 0
+  RESOLUTION_LOSS_WEIGHT: 0.10
+  RES_DEEPCOPY: True
+  CAT_RES_FEAT: False
+  GLOBAL_LOCAL_RES: True
+
+INPUT:
+  SIZE_TRAIN: [256, 128]
+  SIZE_TEST: [256, 128]
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 0.5 # random erasing
+  PADDING: 10
+  PIXEL_MEAN: [0.5, 0.5, 0.5]
+  PIXEL_STD: [0.5, 0.5, 0.5]
+
+
+DATALOADER:
+  SAMPLER: 'softmax2_triplet'
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 8
+
+SOLVER:
+  OPTIMIZER_NAME: 'SGD'
+  MAX_EPOCHS: 600
+  BASE_LR: 0.004
+  IMS_PER_BATCH: 64
+  WARMUP_EPOCHS: 10
+  WARMUP_METHOD: 'linear'
+  LARGE_FC_LR: False
+  CHECKPOINT_PERIOD: 600
+  LOG_PERIOD: 2
+  EVAL_PERIOD: 1
+  START_EVAL: 0
+  WEIGHT_DECAY:  1e-4
+  WEIGHT_DECAY_BIAS: 1e-4
+  BIAS_LR_FACTOR: 2
+
+DATASETS:
+  NAMES: ('CAVIAR')
+  ROOT_DIR: ('/mnt/data/datasets/CAVIAR/CAVIAR9')
+
+OUTPUT_DIR: '/mnt/data/code/reidlog_3/CAVIAR/newmos/lambda0_10_LR002_180epoch/test/CAVIARres'
+
+TEST:
+  EVAL: True
+  IMS_PER_BATCH: 256
+  RE_RANKING: False
+  EVAL_RESOLUTION: False
+  WEIGHT: '/mnt/data/code/reidlog_3/CAVIAR/newmos/lambda0_10_LR002_600epoch/CAVIAR9/transformer_600.pth'
+#  WEIGHT: '/mnt/data/code/reidlog_3/CAVIAR/lambda0_10_LR002_180epoch/CAVIAR0/transformer_best_Rank1'
+  NECK_FEAT: 'before'
+  FEAT_NORM: 'yes'
+
+
