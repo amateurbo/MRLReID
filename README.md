@@ -29,3 +29,7 @@ python test.py
 ```python
 python ./test_res/test.py
 ```
+
+
+## Acknowledgement
+Codebase from [TranReID](https://github.com/damo-cv/TransReID)
