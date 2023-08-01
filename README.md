@@ -14,6 +14,8 @@ pip install -r requirements.txt
 
 The MTA-ReID dataset should be obtained from [mta-dataset](https://github.com/schuar-iosb/mta-dataset).
 
+
+
 ## Training
 
 ```python
@@ -30,5 +32,5 @@ python test.py
 python ./test_res/test.py
 ```
 
-
-
+## Acknowledgement
+Codebase from [TransReID](https://github.com/damo-cv/TransReID).
