@@ -42,10 +42,7 @@ if __name__ == '__main__':
     cmp_PLCC(prelist, tarlist)
     PLCC = scipy.stats.pearsonr(prelist, tarlist)
     SROCC = scipy.stats.spearmanr(prelist, tarlist)
-    KROCC = scipy.stats.kendalltau(prelist, tarlist)
-    RMSE(prelist, tarlist)
 
     print(PLCC)
     print(SROCC)
-    print(KROCC)
 # print(dic)
