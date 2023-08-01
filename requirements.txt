@@ -3,3 +3,4 @@ torchvision
 timm
 yacs
 opencv-python
+scipy
